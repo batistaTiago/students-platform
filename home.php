@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<title>Página Incial</title>
 </head>
 <body>
-    <a href="cadastro.html">Cadastro</a>
+
 </body>
 </html>
