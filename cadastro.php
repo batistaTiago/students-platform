@@ -24,10 +24,6 @@ integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCm
 crossorigin="anonymous">
 </script>
 
-
-<!-- SMTP.js -->
-<script src="https://smtpjs.com/v3/smtp.js"></script>
-
 </head>
 <body>
     <div class="container">
@@ -38,7 +34,7 @@ crossorigin="anonymous">
 
             <div class="centralized-element col-12 w-75" style="border: 2px solid green">
                 <h2>Informações</h2>
-                <form action="processa-cadastro.php" method="post" onsubmit="submitClick()">
+                <form id="form" action="processa-cadastro.php" method="post" onsubmit="submitClick()">
                     <div id="studentNameContainer" class="centralized-element">
                         <label>Nome: </label>
                         <input id="studentNameTextField" name="studentName" type="text" placeholder="Digite seu nome">
@@ -47,6 +43,11 @@ crossorigin="anonymous">
                     <div id="studentPasswordContainer" class="centralized-element">
                         <label>Senha: </label>
                         <input id="studentPasswordTextField" name="studentPassword" type="password" placeholder="Digite sua senha">
+                    </div>
+
+                    <div id="studentPasswordConfirmationContainer" class="centralized-element">
+                        <label>confirmação: </label>
+                        <input id="studentPasswordConfirmationTextField" name="studentPasswordConfirmation" type="password" placeholder="Confirme sua senha">
                     </div>
 
                     <div class="centralized-element">
@@ -92,9 +93,9 @@ crossorigin="anonymous">
                             <option>adicionar cursos...</option>
                         </select>
                     </div>
-                    <button>Cadastrar</button>
+
                 </form>
-                <button onclick="submitClick()">Validar</button>
+                <button onclick="submitClick()">Cadastrar</button>
             </div>
         </div>
     </div>
