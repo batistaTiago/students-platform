@@ -44,6 +44,4 @@ function enviarCadastro(dados) {
             document.location.reload()
         }
     });
-
-
 }
