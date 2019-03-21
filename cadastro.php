@@ -34,25 +34,25 @@ crossorigin="anonymous">
 
             <div class="centralized-element col-12 w-75" style="border: 2px solid green">
                 <h2>Informações</h2>
-                <form id="form" action="processa-cadastro.php" method="post" onsubmit="submitClick()">
+                <form id="form" action="processa-cadastro.php" method="post">
                     <div id="studentNameContainer" class="centralized-element">
                         <label>Nome: </label>
-                        <input id="studentNameTextField" name="studentName" type="text" placeholder="Digite seu nome">
+                        <input id="studentNameTextField" name="studentName" type="text" placeholder="Digite seu nome" onkeyup="keyUp()">
                     </div>
 
                     <div id="studentPasswordContainer" class="centralized-element">
                         <label>Senha: </label>
-                        <input id="studentPasswordTextField" name="studentPassword" type="password" placeholder="Digite sua senha">
+                        <input id="studentPasswordTextField" name="studentPassword" type="password" placeholder="Digite sua senha" onkeyup="keyUp()">
                     </div>
 
                     <div id="studentPasswordConfirmationContainer" class="centralized-element">
                         <label>confirmação: </label>
-                        <input id="studentPasswordConfirmationTextField" name="studentPasswordConfirmation" type="password" placeholder="Confirme sua senha">
+                        <input id="studentPasswordConfirmationTextField" name="studentPasswordConfirmation" type="password" placeholder="Confirme sua senha" onkeyup="keyUp()">
                     </div>
 
                     <div class="centralized-element">
                         <label>Idade: </label>
-                        <input id="studentAgeNumberField" name="studentAge" type="number" placeholder="Digite sua idade">
+                        <input id="studentAgeNumberField" name="studentAge" type="number" placeholder="Digite sua idade" onkeyup="keyUp()">
                     </div>
 
                     <div class="centralized-element">
@@ -95,7 +95,7 @@ crossorigin="anonymous">
                     </div>
 
                 </form>
-                <button onclick="submitClick()">Cadastrar</button>
+                <button onclick="validateAndSubmit()">Cadastrar</button>
             </div>
         </div>
     </div>

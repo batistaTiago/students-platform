@@ -25,8 +25,15 @@ function passwordIsValid(password, confirmation) {
     }
 }
 
+function keyUp() {
+    var keyPressed = event.which || event.keyCode
+    if (keyPressed == 13) {
+        validateAndSubmit()
+    }
+}
 
-function submitClick() {
+
+function validateAndSubmit() {
 
     console.log('validando dados')
 
