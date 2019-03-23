@@ -81,7 +81,6 @@ class DataBaseManager {
 			$query = '
 				UPDATE students_table 
 				SET
-					student_email = ?,
 					student_password = ?,
 					student_age = ?,
 					student_school_level = ?,
@@ -91,13 +90,12 @@ class DataBaseManager {
 					student_id = ?';
 
 			$statement = $this->connection->prepare($query);
-			$statement->bindValue(1, $email);
-			$statement->bindValue(2, $password);
-			$statement->bindValue(3, $age);
-			$statement->bindValue(4, $schoolLevel);
-			$statement->bindValue(5, $isExperienced);
-			$statement->bindValue(6, $area);
-			$statement->bindValue(7, $id);
+			$statement->bindValue(1, $password);
+			$statement->bindValue(2, $age);
+			$statement->bindValue(3, $schoolLevel);
+			$statement->bindValue(4, $isExperienced);
+			$statement->bindValue(5, $area);
+			$statement->bindValue(6, $id);
 
 			return ($statement->execute() == 1);
 		} else {
