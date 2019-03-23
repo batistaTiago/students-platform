@@ -53,8 +53,8 @@ crossorigin="anonymous">
                     <!-- TODO: trocar para data de nascimento -->
 
                     <div class="centralized-element">
-                        <label>Idade: </label>
-                        <input id="studentAgeNumberField" name="studentAge" type="number" placeholder="Digite sua idade" onkeyup="keyUp()">
+                        <label>Data de Nascimento: </label>
+                        <input id="studentBirthdayDatePicker" name="studentBirthday" type="date" onkeyup="keyUp()">
                     </div>
 
                     <div class="centralized-element">

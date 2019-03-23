@@ -24,27 +24,19 @@ function handleResponse(serverResponse) {
     let perfil = JSON.parse(serverResponse)
 
     $('#studentEmailTextField').attr('value', perfil.email)
-    $('#studentBirthdayDatePicker').attr('value', perfil.birthday)
-
-
-    $('img').attr('class', 'img-fluid d-none d-md-block centralized-element')
-
+    $('#studentAgeNumberField').attr('value', perfil.age)
 
     let options = $('select option')
-    console.log(perfil.isExperienced)
+
+    console.log($('body div.container'))
     
     for (let i = 0; i < options.length; i++) {
-        let option = options[i]
-        if (!option) {
-            continue
-        } else if (option.value == "Selecione") {
-            continue
-        }
-
-        if ((option.value == perfil.schoolLevel) || (option.value == perfil.preferredArea)) {
-            option.selected = true
-        }
+       let option = options[i]
+       
+       if ((option.value == perfil.schoolLevel) || (option.value == perfil.preferredArea)) {
+        option.selected = true
+       }
     }
 
-    $('#exp-' + perfil.isExperienced).attr('selected', true)
+    document.getElementById('exp-' + perfil.isExperienced).selected = true
 }

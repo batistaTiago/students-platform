@@ -34,7 +34,7 @@
 		$_SESSION['user'] = serialize(
 			new Student(
 				$resultado->student_email,
-				$resultado->student_age,
+				$resultado->student_birthday,
 				$resultado->student_school_level,
 				$resultado->student_is_experienced,
 				$resultado->student_preferred_area,

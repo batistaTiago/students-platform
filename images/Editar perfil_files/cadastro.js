@@ -1,8 +1,4 @@
-function emailIsValid(email) {
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let result = re.test(String(email).toLowerCase())
-    return result
-}
+
 
 
 // function displayInvalidityFeedback(container) {
@@ -15,6 +11,7 @@ function emailIsValid(email) {
 function passwordIsValid(password, confirmation) {
     console.log('validando senha: ' + password)
     if (password == "") {
+        console.log('senha vazia')
         return false
     } else if (password != confirmation) {
         return false
@@ -45,24 +42,23 @@ function validateAndSubmit() {
     let studentEmail = document.getElementById("studentEmailTextField").value
     let studentPassword = document.getElementById("studentPasswordTextField").value
     let studentPasswordConfirmation = document.getElementById("studentPasswordConfirmationTextField").value
-    let studentBirthday = document.getElementById("studentBirthdayDatePicker").value
+    let studentAge = document.getElementById("studentAgeNumberField").value
     let studentSchoolLevel = document.getElementById("studentSchoolLevelComboBox").selectedOptions[0].text
     let studentIsExperienced = document.getElementById("studentIsExperiencedComboBox").selectedOptions[0].text
     let studentPreferredArea = document.getElementById("studentPreferredAreaComboBox").selectedOptions[0].text
 
-
     // TODO: formatar mensagens de erro - mudar cores do campo que deu erro e ajeitar formatações em geral
-    if (!emailIsValid(studentEmail)) {
-        alert('o endereço de email utilizado é inválido')
+    if (studentEmail == "") {
+        alert('escreva seu email')
 
     } else if (!passwordIsValid(studentPassword, studentPasswordConfirmation)) {
         alert('senha não obede critérios de segurança ou erro na confirmação da senha')
 
-    } /*else if (){
+    } else if (studentAge == "") {
 
-        alert('idade inválida')
+        alert('insira sua idade')
 
-    } */else if (studentSchoolLevel == "Selecione") {
+    } else if (studentSchoolLevel == "Selecione") {
 
         alert('selecione sua escolaridade')
 

@@ -25,7 +25,7 @@
 
 	$email = $_POST['studentEmail'];
 	$password = $_POST['studentPassword'];
-	$age = $_POST['studentAge'];
+	$birthday = $_POST['studentBirthday'];
 	$schoolLevel = $_POST['studentSchoolLevel'];
 	$isExperienced = $_POST['studentIsExperienced'] == "Sim" ? true : false;
 	$area = $_POST['studentPreferredArea'];
@@ -36,11 +36,11 @@
 	echo $id;
 	
 	$manager = DataBaseManager::getInstance();
-	$success = $manager->editEntry($id, $email, $password, $age, $schoolLevel, $isExperienced, $area);
+	$success = $manager->editEntry($id, $email, $password, $birthday, $schoolLevel, $isExperienced, $area);
 
 	if ($success) {
 		$perfil->email = $email;
-		$perfil->age = $age;
+		$perfil->birthday = $birthday;
 		$perfil->schoolLevel = $schoolLevel;
 		$perfil->isExperienced = $isExperienced;
 		$perfil->preferredArea = $preferredArea;

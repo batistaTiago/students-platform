@@ -56,7 +56,7 @@ crossorigin="anonymous">
 	}
 
 	echo "<h2>Email: $perfil->email </h2>";
-	echo "<h2>Idade: $perfil->age </h2>";
+	echo "<h2>Data de nascimento: $perfil->birthday </h2>";
 	echo "<h2>Escolaridade: $perfil->schoolLevel </h2>";
 	echo "<h2>Fez enem: $exp </h2>";
 	echo "<h2>Area: $perfil->preferredArea </h2>";
@@ -64,7 +64,7 @@ crossorigin="anonymous">
 
 	<a href="editar-perfil.php">Editar</a>
 	<br>
-	<span><span class="text-danger display-1 font-weight-bold">TODO</span>: alterar idade para data de nascimento! </span>
+	<span><span class="text-danger display-1 font-weight-bold">TODO</span>: ALTERAR IDADE PARA DATA DE NASCIMENTO! </span>
 
 </body>
 </html>

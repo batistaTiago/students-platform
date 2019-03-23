@@ -45,7 +45,7 @@ crossorigin="anonymous">
         <?php include 'navigation-bar.php'; ?>
         <div class="row d-flex">
             <h1 id="cadastro-title" class="display-2 centralized-element">Editar informações de Aluno</h1>
-            <img id="banner-image" class="centralized-element" src="images/banner.jpg">
+            <img id="banner-image" class="centralized-element " src="images/banner.jpg">
 
             <div class="centralized-element col-12 w-75" style="border: 2px solid green">
                 <h2>Informações</h2>
@@ -66,8 +66,8 @@ crossorigin="anonymous">
                     </div>
 
                     <div class="centralized-element">
-                        <label>Idade: </label>
-                        <input id="studentAgeNumberField" name="studentAge" type="number" placeholder="Digite sua idade" onkeyup="keyUp()">
+                        <label>Data de Nascimento: </label>
+                        <input id="studentBirthdayDatePicker" name="studentBirthday" type="date" onkeyup="keyUp()">
                     </div>
 
                     <div class="centralized-element">

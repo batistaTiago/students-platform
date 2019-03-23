@@ -51,14 +51,14 @@ class DataBaseManager {
 		return $statement->fetch(PDO::FETCH_OBJ);
 	}
 
-	public function registerNewEntry($email, $password, $age, $schoolLevel, $isExperienced, $area) {
+	public function registerNewEntry($email, $password, $birthday, $schoolLevel, $isExperienced, $area) {
 		if ($this->studentExists($email)) {
 			// exibir alerta com erro -> usuario ja existe (redirecionar pra login?)
 			header('Location: login.php?info=user-exists');
 		} else {
 			$query = '
 			INSERT INTO students_table (
-			student_email, student_password, student_age,
+			student_email, student_password, student_birthday,
 			student_school_level, student_is_experienced, 
 			student_preferred_area) VALUES (?, ?, ?, ?, ?, ?)
 			';
@@ -66,7 +66,7 @@ class DataBaseManager {
 			$statement = $this->connection->prepare($query);
 			$statement->bindValue(1, $email);
 			$statement->bindValue(2, $password);
-			$statement->bindValue(3, $age);
+			$statement->bindValue(3, $birthday);
 			$statement->bindValue(4, $schoolLevel);
 			$statement->bindValue(5, $isExperienced);
 			$statement->bindValue(6, $area);
@@ -76,13 +76,13 @@ class DataBaseManager {
 	}
 
 
-	public function editEntry($id, $email, $password, $age, $schoolLevel, $isExperienced, $area) {
+	public function editEntry($id, $email, $password, $birthday, $schoolLevel, $isExperienced, $area) {
 		if ($this->studentExists($email)) {
 			$query = '
 				UPDATE students_table 
 				SET
 					student_password = ?,
-					student_age = ?,
+					student_birthday = ?,
 					student_school_level = ?,
 					student_is_experienced = ?,
 					student_preferred_area = ?
@@ -91,7 +91,7 @@ class DataBaseManager {
 
 			$statement = $this->connection->prepare($query);
 			$statement->bindValue(1, $password);
-			$statement->bindValue(2, $age);
+			$statement->bindValue(2, $birthday);
 			$statement->bindValue(3, $schoolLevel);
 			$statement->bindValue(4, $isExperienced);
 			$statement->bindValue(5, $area);
