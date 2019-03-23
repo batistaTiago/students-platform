@@ -9,12 +9,12 @@
 		// print_r($_POST);
 		// echo '</pre>';
 
-	$nome_do_aluno = $_POST['userEmail'];
-	$senha_do_aluno = $_POST['userPassword'];
+	$userEmail = $_POST['userEmail'];
+	$userPassword = $_POST['userPassword'];
 
 	$manager = DatabaseManager::getInstance();
 
-	$resultado = $manager->checkLoginInformation($nome_do_aluno, $senha_do_aluno);
+	$resultado = $manager->checkLoginInformation($userEmail, $userPassword);
 
 	 // 	echo '<pre>';
 		// print_r($resultado);

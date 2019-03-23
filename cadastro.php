@@ -35,9 +35,9 @@ crossorigin="anonymous">
             <div class="centralized-element col-12 w-75" style="border: 2px solid green">
                 <h2>Informações</h2>
                 <form id="form" action="processa-cadastro.php" method="post">
-                    <div id="studentNameContainer" class="centralized-element">
-                        <label>Nome: </label>
-                        <input id="studentNameTextField" name="studentName" type="text" placeholder="Digite seu nome" onkeyup="keyUp()">
+                    <div id="studentEmailContainer" class="centralized-element">
+                        <label>Email: </label>
+                        <input id="studentEmailTextField" name="studentEmail" type="email" placeholder="Digite seu email" onkeyup="keyUp()">
                     </div>
 
                     <div id="studentPasswordContainer" class="centralized-element">

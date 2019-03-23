@@ -39,7 +39,7 @@ function validateAndSubmit() {
 
     // TODO: recuperar com jquery - mt melhor - ver como fazer a importação
     let form = document.getElementById("form")
-    let studentName = document.getElementById("studentNameTextField").value
+    let studentEmail = document.getElementById("studentEmailTextField").value
     let studentPassword = document.getElementById("studentPasswordTextField").value
     let studentPasswordConfirmation = document.getElementById("studentPasswordConfirmationTextField").value
     let studentAge = document.getElementById("studentAgeNumberField").value
@@ -48,8 +48,8 @@ function validateAndSubmit() {
     let studentPreferredArea = document.getElementById("studentPreferredAreaComboBox").selectedOptions[0].text
 
     // TODO: formatar mensagens de erro - mudar cores do campo que deu erro e ajeitar formatações em geral
-    if (studentName == "") {
-        alert('escreva seu nome')
+    if (studentEmail == "") {
+        alert('escreva seu email')
 
     } else if (!passwordIsValid(studentPassword, studentPasswordConfirmation)) {
         alert('senha não obede critérios de segurança ou erro na confirmação da senha')

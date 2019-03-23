@@ -6,6 +6,10 @@
 }
 */
 
+body {
+    background: url('../images/monochrome2.png');
+}
+
 .fundo-cinza {
 	background-color: #bbb;
 }

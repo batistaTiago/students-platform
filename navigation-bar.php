@@ -7,12 +7,12 @@
 
 
 <header>
-      <nav class="navbar navbar-expand-md navbar-light">
-        <div class="container bg-dark">
+      <nav class="navbar navbar-expand-md navbar-light bg-dark" 
+           style="border-bottom: 1px solid #999">
+        <div class="container">
           <!-- logo -->
           <a href="#" class="navbar-brand">
-            <div class="sr-only">Finans</div>
-            <img src="" width="142">  
+            <div class="sr-only">Plataforma do ENEM</div>
           </a>
 
           <!-- botao de hamburger -->

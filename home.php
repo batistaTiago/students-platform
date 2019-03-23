@@ -63,6 +63,8 @@ crossorigin="anonymous">
 	?>
 
 	<a href="editar-perfil.php">Editar</a>
+	<br>
+	<span><span class="text-danger display-1 font-weight-bold">TODO</span>: alterar idade para data de nascimento! </span>
 
 </body>
 </html>

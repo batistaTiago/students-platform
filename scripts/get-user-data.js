@@ -23,11 +23,10 @@ function requestUserData() {
 function handleResponse(serverResponse) {
     let perfil = JSON.parse(serverResponse)
     
-    
-    
     console.log(perfil)
     
-    document.getElementById('studentNameTextField').value = perfil.email
+    document.getElementById('studentEmailTextField').value = perfil.email
+    
     document.getElementById('studentAgeNumberField').value = perfil.age
 
     let options = $('select option')

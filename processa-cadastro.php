@@ -21,14 +21,14 @@
 
 	*/
 
-	$nome = $_POST['studentName'];
-	$senha = $_POST['studentPassword'];
-	$idade = $_POST['studentAge'];
-	$escolaridade = $_POST['studentSchoolLevel'];
-	$experiente = $_POST['studentIsExperienced'] == "Sim" ? true : false;
+	$email = $_POST['studentEmail'];
+	$password = $_POST['studentPassword'];
+	$age = $_POST['studentAge'];
+	$schoolLevel = $_POST['studentSchoolLevel'];
+	$isExperienced = $_POST['studentIsExperienced'] == "Sim" ? true : false;
 	$area = $_POST['studentPreferredArea'];
 	
 	$manager = DataBaseManager::getInstance();
-	$manager->registerNewEntry($nome, $senha, $idade, $escolaridade, $experiente, $area);
+	$manager->registerNewEntry($email, $password, $age, $schoolLevel, $isExperienced, $area);
 
 ?>

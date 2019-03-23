@@ -23,11 +23,11 @@
 
 	*/
 
-	$nome = $_POST['studentName'];
-	$senha = $_POST['studentPassword'];
-	$idade = $_POST['studentAge'];
-	$escolaridade = $_POST['studentSchoolLevel'];
-	$experiente = $_POST['studentIsExperienced'] == "Sim" ? true : false;
+	$email = $_POST['studentEmail'];
+	$password = $_POST['studentPassword'];
+	$age = $_POST['studentAge'];
+	$schoolLevel = $_POST['studentSchoolLevel'];
+	$isExperienced = $_POST['studentIsExperienced'] == "Sim" ? true : false;
 	$area = $_POST['studentPreferredArea'];
 
 	$perfil = unserialize($_SESSION['user']);
@@ -36,14 +36,14 @@
 	echo $id;
 	
 	$manager = DataBaseManager::getInstance();
-	$success = $manager->editEntry($id, $nome, $senha, $idade, $escolaridade, $experiente, $area);
+	$success = $manager->editEntry($id, $email, $password, $age, $schoolLevel, $isExperienced, $area);
 
 	if ($success) {
-		$perfil->email = $nome;
-		$perfil->age = $idade;
-		$perfil->schoolLevel = $escolaridade;
-		$perfil->isExperienced = $experiente;
-		$perfil->preferredArea = $area;
+		$perfil->email = $email;
+		$perfil->age = $age;
+		$perfil->schoolLevel = $schoolLevel;
+		$perfil->isExperienced = $isExperienced;
+		$perfil->preferredArea = $preferredArea;
 		$_SESSION['user'] = serialize($perfil);
 		header('Location: home.php');
 	}
