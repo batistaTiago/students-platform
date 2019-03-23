@@ -1,3 +1,11 @@
+<?php
+
+  //TODO:
+      // customizar baseado no status de logado ou não
+
+?>
+
+
 <header>
       <nav class="navbar navbar-expand-md navbar-light">
         <div class="container">
@@ -24,6 +32,9 @@
               </li>
               <li class="nav-item">
                 <a href="login.php" class="nav-link text-dark">Login</a>
+              </li>
+              <li class="nav-item">
+                <a href="logout.php" class="nav-link text-dark">Logout</a>
               </li>
             </ul>
 

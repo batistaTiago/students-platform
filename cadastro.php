@@ -50,6 +50,8 @@ crossorigin="anonymous">
                         <input id="studentPasswordConfirmationTextField" name="studentPasswordConfirmation" type="password" placeholder="Confirme sua senha" onkeyup="keyUp()">
                     </div>
 
+                    <!-- TODO: trocar para data de nascimento -->
+
                     <div class="centralized-element">
                         <label>Idade: </label>
                         <input id="studentAgeNumberField" name="studentAge" type="number" placeholder="Digite sua idade" onkeyup="keyUp()">

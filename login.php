@@ -37,45 +37,45 @@ crossorigin="anonymous">
 					<div class="d-block">
 						<form action="processa-login.php" method="post" class="mt-5 pt-5">
 
-							<?php 
-
-							if (isset($_GET['info'])) {
+							<? if (isset($_GET['info'])) {
 								$descricao = $_GET['info'];   
-								if ($descricao == 'resultado-invalido') { 
-
-									?>
-
+								if ($descricao == 'resultado-invalido') { ?>
 									<div class="my-5 bg-danger">
-										<h3 class="text-center my-5 py-2"><?= $descricao . '<ht>' ?></h3>
+										<h3 class="text-center my-5 py-2"><?= 'Credenciais incorretas <ht>' ?></h3>
 										</div>
+									<? } else if ($descricao == 'user-exists') { ?>
+										<div class="my-5 bg-danger">
+											<h3 class="text-center my-5 py-2"><?= 'O usuário já existe, tente fazer login. <ht>' ?></h3>
+											</div>
+										<? } else if ($descricao == 'logout') { ?>
+										<div class="my-5 bg-success">
+											<h3 class="text-center text-white my-5 py-2"><?= 'Logout realizado com sucesso. <ht>' ?></h3>
+											</div>
+										<? } ?>
+									<? } ?>
 
-										<?php 
-									}
-								} 
-								?>
-
-								<div class="centralized-element elemento-bordado w-100">
-									<label>Email: </label>
-									<input class="ml-1" type="text" name="userEmail">	
-									<label class="ml-4">Senha: </label>
-									<input class="ml-1" type="password" name="userPassword">	
-								</div>
-								<div class="d-flex justify-content-center my-3">
-									<button class="btn btn-info" type="submit">Login</button>	
-								</div>
+									<div class="centralized-element elemento-bordado w-100">
+										<label>Email: </label>
+										<input class="ml-1" type="text" name="userEmail">	
+										<label class="ml-4">Senha: </label>
+										<input class="ml-1" type="password" name="userPassword">	
+									</div>
+									<div class="d-flex justify-content-center my-3">
+										<button class="btn btn-info" type="submit">Login</button>	
+									</div>
 
 
 
-							</form>
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<?php include 'footer.php'; ?>
-		</div>
-
+				<?php include 'footer.php'; ?>
+			</div>
 
 
-	</body>
-	</html>
+
+		</body>
+		</html>

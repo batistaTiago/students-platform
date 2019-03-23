@@ -1,16 +1,47 @@
 <?php
 
+	session_start();
+
 	require 'database-manager.php';
-	
-	echo '<pre>';
-	print_r($_POST);
-	echo '</pre>';
+	require 'student.php';
 
-	$nome_do_aluno = utf8_decode($_POST['userEmail']);
-	$senha_do_aluno = utf8_decode($_POST['userPassword']);
+		// echo '<pre>';
+		// print_r($_POST);
+		// echo '</pre>';
 
- 	$manager = DatabaseManager::getInstance();
+	$nome_do_aluno = $_POST['userEmail'];
+	$senha_do_aluno = $_POST['userPassword'];
 
- 	$manager->checkLoginInformation($nome_do_aluno, $senha_do_aluno);
+	$manager = DatabaseManager::getInstance();
+
+	$resultado = $manager->checkLoginInformation($nome_do_aluno, $senha_do_aluno);
+
+	 // 	echo '<pre>';
+		// print_r($resultado);
+		// echo '</pre>';
+
+
+	if ($resultado == null) {
+		$_SESSION['userIsAuthenticated'] = 'false';
+		$_SESSION['userId'] = -1;
+		$_SESSION['user'] = null;
+		header('Location: login.php?info=resultado-invalido');
+	} else {
+		$_SESSION['userId'] = $resultado->student_id;
+		$_SESSION['userIsAuthenticated'] = 'true';
+
+
+		$_SESSION['user'] = serialize(
+			new Student(
+				$resultado->student_email,
+				$resultado->student_age,
+				$resultado->student_school_level,
+				$resultado->student_is_experienced,
+				$resultado->student_preferred_area,
+				$resultado->student_id));
+
+
+		header('Location: home.php');
+	}
 
 ?>
