@@ -1,0 +1,81 @@
+<script src="/scripts/validarCadastro.js"></script>
+
+<section>
+    <div class="container my-4">
+        <div class="row d-flex">
+            <h1 id="cadastro-title" class="display-2 bt-centralized-element">Cadastro de novo aluno</h1>
+
+            <div class="bt-centralized-element col-12 w-75 bt-bg-gray p-3">
+
+                <h2 class="font-weight-bold" id="info-cadastro-header">Informações</h2>
+                
+                <form action="/processar_cadastro" method="post" class="my-4">
+                    <div id="studentEmailContainer" class="bt-centralized-element form-group bt-default-form-group">
+                        <label>Email: </label>
+                        <input autocomplete="off" class="form-control bt-default-form-control" id="studentEmailTextField" name="studentEmail" type="email" placeholder="Digite seu email">
+                    </div>
+
+                    <div id="studentPasswordContainer" class="bt-centralized-element form-group bt-default-form-group">
+                        <label>Senha: </label>
+                        <input class="form-control bt-default-form-control" id="studentPasswordTextField" name="studentPassword" type="password" placeholder="Digite sua senha">
+                        <label id="label-confirmacao">Confirmação: </label>
+                        <input class="form-control bt-default-form-control" id="studentPasswordConfirmationTextField" name="studentPasswordConfirmation" type="password" placeholder="Confirme sua senha">
+                    </div>
+
+                    <!-- TODO: trocar para data de nascimento -->
+
+                    <div class="bt-centralized-element form-group bt-default-form-group">
+                        <label>Data de Nascimento: </label>
+                        <input class="form-control bt-default-form-control" id="studentBirthdayDatePicker" name="studentBirthday" type="date">
+                    </div>
+
+                    <div class="bt-centralized-element form-group bt-default-form-group">
+                        <label>Escolaridade: </label>
+                        <select class="form-control bt-default-form-control" id="studentSchoolLevelComboBox" name="studentSchoolLevel">
+                            <option value="0">Selecione</option>
+                            <option value="1">Fundamental</option>
+                            <option value="2">Médio</option>
+                            <option value="3">Pré-vestibular</option>
+                        </select>
+                    </div>
+
+                    <div class="bt-centralized-element form-group bt-default-form-group">
+                        <label>Fez ENEM antes: </label>
+                        <select class="form-control bt-default-form-control" id="studentIsExperiencedComboBox" name="studentIsExperienced">
+                            <option value="0">Selecione</option>
+                            <option value='1'>Sim</option>
+                            <option value='2'>Não</option>
+                        </select>
+                    </div>
+
+                    <div class="bt-centralized-element form-group bt-default-form-group">
+                        <label>Area de preferência: </label>
+                        <select class="form-control bt-default-form-control" id="studentPreferredAreaComboBox" name="studentPreferredArea">
+                            <option value="0">Selecione</option>
+                            <option value='1'>Exatas</option>
+                            <option value='2'>Tecnológica</option>
+                            <option value='3'>Biológicas</option>
+                            <option value='4'>Humanas</option>
+                            <option value='5'>Saúde</option>
+                        </select>
+                    </div>
+
+                    <div class="bt-centralized-element form-group bt-default-form-group">
+                        <label>Curso pretendido: </label>
+                        <select>
+                            <!-- talvez seja melhor adicionar pelo js ao inves de adicionar na mão -->
+                            <option>adicionar cursos...</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex justify-content-center pt-1">
+                    	<button type="submit" class="btn btn-outline-dark centralized-element btn-lg font-weight-bold btn-block">Cadastrar</button>	
+                    </div>
+                    
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

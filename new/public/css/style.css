@@ -1,0 +1,61 @@
+html, body, #section-login, #section-index {
+	height: 100%;
+}
+
+body {
+	background: url('../img/monochrome2.png');
+}
+
+.bt-bg-gray {
+	background-color: #bbb;
+}
+
+.bt-centralized-element {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bt-default-form-control {
+	background-color: #bbb;
+}
+
+.bt-default-form-group {
+	border: 1px solid #333;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.bt-footer-element {
+	border-top: 1px solid #CCC;
+}
+
+.bt-green-border {
+	border: 1px solid green;
+}
+
+
+.bt-default-form-control, .bt-default-form-control:focus {
+	background-color: #ccc;
+	border-color: rgb(50,50,50);
+}
+
+.bt-valid-form-control, .bt-valid-form-control:focus {
+	border: 1px solid green;
+	background-color: rgba(0,255,0,0.02)
+}
+
+.bt-invalid-form-control, .bt-invalid-form-control:focus {
+	border: 1px solid red;
+	background-color: rgba(255,0,0,0.02)
+}
+
+
+#info-cadastro-header {
+	text-decoration: underline;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#label-confirmacao {
+	margin-top: 10px;
+}

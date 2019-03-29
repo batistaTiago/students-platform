@@ -50,7 +50,7 @@ crossorigin="anonymous">
                         <input id="studentPasswordConfirmationTextField" name="studentPasswordConfirmation" type="password" placeholder="Confirme sua senha" onkeyup="keyUp()">
                     </div>
 
-                    <!-- TODO: trocar para data de nascimento -->
+                    <!-- TODO: deixar apenas 4 digitos para o ano -->
 
                     <div class="centralized-element">
                         <label>Data de Nascimento: </label>
@@ -97,6 +97,7 @@ crossorigin="anonymous">
                     </div>
 
                 </form>
+                <!-- TODO: enviar confirmação por email -->
                 <button onclick="validateAndSubmit()">Cadastrar</button>
             </div>
         </div>
