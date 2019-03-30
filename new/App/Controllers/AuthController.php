@@ -100,7 +100,29 @@ class AuthController extends Action {
 	}
 
 	public function processarRedefinicaoSenha() {
-		
+		echo 'estamos aqui: usuario a recuperar senha: ';
+		$email = $_POST['studentEmail'];
+		echo $email . '<hr>';
+
+
+
+		$estudante = Container::getModel('Estudante');
+		$estudante->__set('email', $_POST['studentEmail']);
+		$estudante = $estudante->getUserByEmail();
+
+		if ($estudante != null) {
+			echo '<br>usuario existe, informações disponíveis:<br>';
+			echo '<pre>';
+			print_r($estudante);
+			echo '</pre>';
+
+
+			echo '<hr>registrando nova requisição';
+			$requisicao = Container::getModel('PasswordResetRequest');
+			$requisicao->registrarNovaRequisicao($estudante['student_id']);
+		} else {
+			echo '<br>usuario não existe!';
+		}
 	}
 
 	public function processarLogout() {

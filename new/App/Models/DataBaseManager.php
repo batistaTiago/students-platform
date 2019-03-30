@@ -82,7 +82,7 @@ class DataBaseManager extends Model {
 	CREATE TABLE
 		reset_password_requests_table(
 			password_request_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-			requesting_user_id INT NOT NULL,
+			requesting_user_id VARCHAR(32) NOT NULL,
 			request_hash_validation VARCHAR(32) NOT NULL
 	);
 	';
