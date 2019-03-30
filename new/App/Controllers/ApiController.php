@@ -17,4 +17,8 @@ class ApiController extends Action {
 		print_r(json_encode(array('disponivel' => $disponivel)));
 	}
 
+	public function initDB() {
+		Container::getModel('DataBaseManager')->initDataBase();
+	}
+
 }

@@ -17,6 +17,10 @@ class IndexController extends Action {
 		$this->render('cadastrar');
 	}
 
+	public function sucessoCadastro() {
+		$this->render('sucesso_cadastro', 'layout-small');
+	}
+
 	public function login() {
 		if (isset($_GET['info']) && $_GET['info'] != '') {
 			$this->view->info = $_GET['info'];

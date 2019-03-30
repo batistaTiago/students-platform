@@ -21,7 +21,7 @@ class AuthController extends Action {
 			$sucesso = $estudante->registrar($_POST['studentPassword']);
 
 			if ($sucesso) {
-				echo 'sucesso';
+				header('Location: /sucesso_cadastro');
 			} else {
 				echo 'erro';
 			}
@@ -39,15 +39,30 @@ class AuthController extends Action {
 		$sucesso = $estudante->autenticar($_POST['studentPassword']);
 		
 		if ($sucesso) {
-			session_start();
-			$_SESSION['id'] = $estudante->__get('id');
-			$_SESSION['birthday'] = $estudante->__get('birthday');
-			$_SESSION['schoolLevel'] = $estudante->__get('schoolLevel');
-			$_SESSION['isExperienced'] = $estudante->__get('isExperienced');
-			$_SESSION['preferredArea'] = $estudante->__get('preferredArea');
-			header('Location: /main');
+			if ($estudante->__get('isActive')) {
+				session_start();
+				$_SESSION['id'] = $estudante->__get('id');
+				$_SESSION['birthday'] = $estudante->__get('birthday');
+				$_SESSION['schoolLevel'] = $estudante->__get('schoolLevel');
+				$_SESSION['isExperienced'] = $estudante->__get('isExperienced');
+				$_SESSION['preferredArea'] = $estudante->__get('preferredArea');
+				header('Location: /main');
+			} else {
+				header('Location: /login?info=usuario_inativo');
+			}
+			
 		} else {
 			header('Location: /login?info=erro');
+		}
+	}
+
+	public function processarValidacaoEmail() {
+		if (isset($_GET['confirmation']) && isset($_GET['user'])) {
+			$email = $_GET['user'];
+			$hash = $_GET['confirmation'];
+			Container::getModel('Estudante')->validarEmailUsuario($hash, $email);		
+		} else {
+			echo 'um dos parametros veio errado';
 		}
 	}
 

@@ -18,26 +18,34 @@
 								<label>Senha: </label>
 								<input class="form-control bt-default-form-control" id="studentPasswordTextField" name="studentPassword" type="password" placeholder="Digite sua senha">
 							</div>
-							<button class="col-md-3 btn btn-outline-dark bt-centralized-element btn-info-block" type="submit">Login</button>
+							<button class="col-md-2 btn btn-outline-dark bt-centralized-element btn-info-block" type="submit">Login</button>
 
 
 						</div>
 					</div>
-					<? if ($this->view->info == 'erro') { ?>
+					<? if (isset($this->view->info)) {
+						if ($this->view->info == 'erro') { ?>
 
+							<script src="/scripts/erroLogin.js"></script>
 
-						<script src="/scripts/erroLogin.js"></script>
+							<div id="div-erro">
+								<span id="mensagem-erro" class="text-white bg-danger d-block lead text-center py-2 mt-3">
+									Usuário ou senha incorretos
+								</span>	
+							</div>
 
+						<? } else if ($this->view->info == 'usuario_inativo') { ?>
 
-						<div id="div-erro">
-							<span id="mensagem-erro" class="text-white bg-danger d-block lead text-center py-2 mt-3">
-								Usuário ou senha incorretos
-							</span>	
-						</div>
-						
+							<script src="/scripts/feedbackLogin.js"></script>
 
+							<div id="div-usuario-inativo">
+								<span id="mensagem-usuario-inativo" class="text-dark bg-warning d-block lead text-center py-2 mt-3">
+									Usuario inativo, confirme no endereço de email cadastrado.
+								</span>	
+							</div>
 
-					<? } ?>
+						<?}
+					}?>
 				</div>
 			</form>
 

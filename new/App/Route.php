@@ -22,6 +22,12 @@ class Route extends Bootstrap {
 			'action' => 'cadastrar'
 		);
 
+		$routes['sucesso_cadastro'] = array(
+			'route' => '/sucesso_cadastro',
+			'controller' => 'IndexController',
+			'action' => 'sucessoCadastro'
+		);
+
 		$routes['login'] = array(
 			'route' => '/login',
 			'controller' => 'IndexController',
@@ -37,11 +43,20 @@ class Route extends Bootstrap {
 			'action' => 'processarCadastro'
 		);
 
+		$routes['validar_email'] = array(
+			'route' => '/validar_email',
+			'controller' => 'AuthController',
+			'action' => 'processarValidacaoEmail'
+		);
+
+
 		$routes['processar_login'] = array(
 			'route' => '/processar_login',
 			'controller' => 'AuthController',
 			'action' => 'processarLogin'
 		);
+
+
 
 		/* ROTAS DA APLICAÇÃO */
 
@@ -58,6 +73,12 @@ class Route extends Bootstrap {
 			'controller' => 'ApiController',
 			'action' => 'emailDisponivel'
 		);
+
+		// $routes['init_db'] = array(
+		// 	'route' => '/init_db',
+		// 	'controller' => 'ApiController',
+		// 	'action' => 'initDB'
+		// );		
 
 		$this->setRoutes($routes);
 	}

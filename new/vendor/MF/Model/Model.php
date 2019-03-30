@@ -10,6 +10,10 @@ abstract class Model {
 	public function __construct(\PDO $db) {
 		$this->connection = $db;
 	}
+
+	public function __getConnection() {
+		return $this->connection;
+	}
 }
 
 

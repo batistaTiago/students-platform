@@ -38,7 +38,6 @@ function displayDefaultFeedback(element) {
 }
 
 
-
 $(document).ready(() => {
 
     let emailTextField = $('#studentEmailTextField')
