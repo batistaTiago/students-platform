@@ -69,10 +69,10 @@ class DataBaseManager extends Model {
 		];
 
 		foreach ($queries as $key => $query) {
-			echo "<large><strong>running query</strong></large>: <br><br><br> $query <br><br><br>";
+			echo "<large><strong>Running Query</strong></large>: <br><br><br> $query <br><br><br>";
 			$statement = $this->connection->prepare($query);
 			$result = $statement->execute();
-			echo "resultado: $result <br> <br> <hr>";
+			echo "Resultado: $result <br> <br> <hr>";
 		}
 	}
 

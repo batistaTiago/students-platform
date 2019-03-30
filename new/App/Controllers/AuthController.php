@@ -53,7 +53,6 @@ class AuthController extends Action {
 				$_SESSION['schoolLevel'] = $estudante->__get('schoolLevel');
 				$_SESSION['isExperienced'] = $estudante->__get('isExperienced');
 				$_SESSION['preferredArea'] = $estudante->__get('preferredArea');
-
 				header('Location: /main');
 			} else {
 				header('Location: /login?info=usuario_inativo');

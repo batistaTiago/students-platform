@@ -15,6 +15,7 @@ class AppController extends Action {
 	public function main() {
 		$this->validarSessao();
 		$this->view->user = $_SESSION;
+		$this->view->pageTitle = 'Página Principal';
 		$this->render('main', 'layout-logado');
 	}
 
