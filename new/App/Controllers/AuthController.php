@@ -99,6 +99,10 @@ class AuthController extends Action {
 		header('Location: /login?info=sessao_expirada');
 	}
 
+	public function processarRedefinicaoSenha() {
+		
+	}
+
 	public function processarLogout() {
 		session_start();
 		session_destroy();

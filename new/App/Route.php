@@ -55,6 +55,11 @@ class Route extends Bootstrap {
 			'action' => 'processarValidacaoEmail'
 		);
 
+		$routes['processar_redefinicao_senha'] = array(
+			'route' => '/processar_redefinicao_senha',
+			'controller' => 'AuthController',
+			'action' => 'processarRedefinicaoSenha'
+		);
 
 		$routes['processar_login'] = array(
 			'route' => '/processar_login',
