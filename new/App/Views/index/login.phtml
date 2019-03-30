@@ -4,47 +4,51 @@
 			<h1 class="display-2 bt-centralized-element">Página de Login</h1>
 
 			<div class="bt-centralized-element col-12 w-75 bt-bg-gray p-3">
+				<div class="d-flex justify-content-center mb-3">
+					<h3>Insira suas crecendiais</h3>
+				</div>
 				<form action="/processar_login" method="post">
 					<div class="container">
 						<div class="row d-flex justify-content-around">
 
-
-
-							<div id="studentEmailContainer" class="col-md-6 bt-centralized-element form-group">
-								<label>Email: </label>
-								<input autocomplete="off" class="form-control bt-default-form-control" id="studentEmailTextField" name="studentEmail" type="email" placeholder="Digite seu email">
-							</div>
-							<div class="col-md-6 bt-centralized-element form-group">
-								<label>Senha: </label>
+							<div class="col-md-6 bt-centralized-element input-group">
+								<div class="input-group-prepend">
+									<input type="email" placeholder="Digite seu email" name="studentEmail" class="form-control bt-default-form-control bt-no-rounded-right-borders">	
+								</div>
 								<input class="form-control bt-default-form-control" id="studentPasswordTextField" name="studentPassword" type="password" placeholder="Digite sua senha">
+								<div class="input-group-append">
+									<button class="btn btn-dark btn-info-block bt-no-rounded-left-borders" type="submit">Login</button>
+								</div>
 							</div>
-							<div class="col-md-3 bt-centralized-element d-flex justify-content-between">
-								<button class="btn btn-outline-dark btn-info-block" type="submit">Login</button>
-								<button class="btn btn-outline-dark btn-info-block" type="button">Esqueci a senha</button>
-							</div>
-
 
 						</div>
+						<hr>
+						<div class="col-12 d-flex justify-content-center">
+							<a class="btn btn-outline-dark" href="/recuperar_senha">Esqueci a senha</a>
+						</div>
+
+
 					</div>
-					<? if (isset($this->view->info)) { ?>
+				</div>
+				<? if (isset($this->view->info)) { ?>
 
-						<script src="/scripts/feedbackLogin.js"></script>
-						
-						<? if ($this->view->info == 'erro') { ?>
+					<script src="/scripts/feedbackLogin.js"></script>
 
-							<div class="div-feedback">
-								<span class="mensagem-feedback text-white bg-danger d-block lead text-center py-2 mt-3">
-									Usuário ou senha incorretos
-								</span>	
-							</div>
+					<? if ($this->view->info == 'erro') { ?>
 
-						<? } else if ($this->view->info == 'usuario_inativo') { ?>
+						<div class="div-feedback">
+							<span class="mensagem-feedback text-white bg-danger d-block lead text-center py-2 mt-3">
+								Usuário ou senha incorretos
+							</span>	
+						</div>
 
-							<div class="div-feedback">
-								<span class="mensagem-feedback text-dark bg-warning d-block lead text-center py-2 mt-3">
-									Usuario inativo, confirme no endereço de email cadastrado.
-								</span>	
-							</div>
+					<? } else if ($this->view->info == 'usuario_inativo') { ?>
+
+						<div class="div-feedback">
+							<span class="mensagem-feedback text-dark bg-warning d-block lead text-center py-2 mt-3">
+								Usuario inativo, confirme no endereço de email cadastrado.
+							</span>	
+						</div>
 
 						<?} else if ($this->view->info == 'sessao_expirada') { ?>
 
@@ -54,18 +58,18 @@
 								</span>	
 							</div>
 
-						<?} else if ($this->view->info == 'conta_ativada') { ?>
+							<?} else if ($this->view->info == 'conta_ativada') { ?>
 
-							<div class="div-feedback">
-								<span class="mensagem-feedback text-light bg-success d-block lead text-center py-2 mt-3">
-									Usuario ativado - você pode fazer login.
-								</span>	
-							</div>
+								<div class="div-feedback">
+									<span class="mensagem-feedback text-light bg-success d-block lead text-center py-2 mt-3">
+										Usuario ativado - você pode fazer login.
+									</span>	
+								</div>
 
-						<? }
-					}?>
-				</div>
-			</form>
+							<? }
+						}?>
+					</div>
+				</form>
 
 <!-- 				<form action="" method="post" class="mt-5 pt-5">
 

@@ -30,6 +30,11 @@ class IndexController extends Action {
 		$this->view->pageTitle = 'Página de Login';
 		$this->render('login', 'layout-small');
 	}
+
+	public function recuperarSenha() {
+		$this->view->pageTitle = 'Esqueci minha Senha';
+		$this->render('recuperar_senha', 'layout-small');
+	}
 }
 
 

@@ -37,8 +37,16 @@ function displayDefaultFeedback(element) {
     element.removeClass('bt-valid-form-control')
 }
 
+function applyInitialStyle() {
+    $('label').addClass('font-weight-bold bt-register-form-label-default-width input-group-text bt-default-form-control d-inline-block text-dark')
+    $('input').addClass('form-control bt-default-form-control')
+    $('select').addClass('form-control bt-default-form-control')
+    $('.form-container').addClass('bt-centralized-element input-group bt-default-form-group mb-3')
+}
 
 $(document).ready(() => {
+
+    applyInitialStyle()
 
     let emailTextField = $('#studentEmailTextField')
     let senhaTextField = $('#studentPasswordTextField')

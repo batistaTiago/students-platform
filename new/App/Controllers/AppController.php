@@ -20,6 +20,6 @@ class AppController extends Action {
 	}
 
 	public function editarCadastro() {
-		
+		echo 'estamos na edição de cadastro!';
 	}
 }

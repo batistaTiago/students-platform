@@ -28,6 +28,12 @@ class Route extends Bootstrap {
 			'action' => 'sucessoCadastro'
 		);
 
+		$routes['recuperar_senha'] = array(
+			'route' => '/recuperar_senha',
+			'controller' => 'IndexController',
+			'action' => 'recuperarSenha'
+		);
+
 		$routes['login'] = array(
 			'route' => '/login',
 			'controller' => 'IndexController',
@@ -68,6 +74,12 @@ class Route extends Bootstrap {
 			'route' => '/main',
 			'controller' => 'AppController',
 			'action' => 'main'
+		);
+
+		$routes['editar_cadastro'] = array(
+			'route' => '/editar_cadastro',
+			'controller' => 'AppController',
+			'action' => 'editarCadastro'
 		);
 
 		/* ROTAS DE API */

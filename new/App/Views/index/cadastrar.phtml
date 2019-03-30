@@ -5,74 +5,110 @@
         <div class="row d-flex">
             <h1 id="cadastro-title" class="display-2 bt-centralized-element">Cadastro de novo aluno</h1>
 
-            <div class="bt-centralized-element col-12 w-75 bt-bg-gray p-3">
-
-                <h2 class="font-weight-bold" id="info-cadastro-header">Informações</h2>
+            <div class="bt-centralized-element col-12 bt-bg-gray p-3">
                 
-                <form action="/processar_cadastro" method="post" class="my-4">
-                    <div id="studentEmailContainer" class="bt-centralized-element form-group bt-default-form-group">
-                        <label>Email: </label>
-                        <input autocomplete="off" class="form-control bt-default-form-control" id="studentEmailTextField" name="studentEmail" type="email" placeholder="Digite seu email">
+                <form action="/processar_cadastro" method="post" class="py-2 px-2 bt-default-border text-uppercase">
+                    
+                    <h2 class="font-weight-bold mb-3 text-center" id="info-cadastro-header">Informações</h2>
+
+                    <div class="form-container">
+                        <div class="input-group-prepend">
+                            <label for="studentEmailTextField" 
+                            class="input-group-text bt-default-form-control d-inline-block text-dark">Email</label>    
+                        </div>
+                        <input autocomplete="off" id="studentEmailTextField" name="studentEmail" type="email" placeholder="Digite seu email">
+
+                        <div class="input-group-prepend ml-2">
+                            <label for="studentNameTextField">Nome</label>    
+                        </div>
+                        <input autocomplete="off" id="studentNameTextField" name="studentName" type="text" placeholder="Digite seu nome">
                     </div>
 
-                    <div id="studentPasswordContainer" class="bt-centralized-element form-group bt-default-form-group">
-                        <label>Senha: </label>
-                        <input class="form-control bt-default-form-control" id="studentPasswordTextField" name="studentPassword" type="password" placeholder="Digite sua senha">
-                        <label id="label-confirmacao">Confirmação: </label>
-                        <input class="form-control bt-default-form-control" id="studentPasswordConfirmationTextField" name="studentPasswordConfirmation" type="password" placeholder="Confirme sua senha">
+
+                    <div class="form-container d-flex justify-content-around">
+                        <div class="input-group-prepend">
+                            <label for="studentPasswordTextField" 
+                            class="input-group-text bt-default-form-control d-inline-block text-dark">Senha</label>    
+                        </div>
+                        <input id="studentPasswordTextField" name="studentPassword" type="password" placeholder="Digite sua senha">
+
+                        <div class="input-group-prepend ml-2">
+                            <label for="studentPasswordConfirmationTextField" 
+                            class="input-group-text bt-default-form-control d-inline-block text-dark">Confirmação</label>    
+                        </div>
+                        <input id="studentPasswordConfirmationTextField" name="studentPassword" type="password" placeholder="Confirme sua senha">
+
+
                     </div>
 
-                    <div id="studentNameContainer" class="bt-centralized-element form-group bt-default-form-group">
-                        <label>Nome: </label>
-                        <input autocomplete="off" class="form-control bt-default-form-control" id="studentNameTextField" name="studentName" type="text" placeholder="Digite seu nome">
-                    </div>
+                    <div class="form-container">
+                       <div class="input-group-prepend">
+                        <label for="studentBirthdayDatePicker"
+                        class="d-inline-block input-group-text bt-default-form-control text-dark">Data de Nascimento
+                    </label>
+                </div>
+                <input id="studentBirthdayDatePicker" name="studentBirthday" type="date">
+            </div>
 
-                    <div class="bt-centralized-element form-group bt-default-form-group">
-                        <label>Data de Nascimento: </label>
-                        <input class="form-control bt-default-form-control" id="studentBirthdayDatePicker" name="studentBirthday" type="date">
-                    </div>
+            <div class="form-container">
+               <div class="input-group-prepend">
+                <label for="studentSchoolLevelComboBox"
+                class="input-group-text bt-default-form-control text-dark">
+                Escolaridade
+            </label>     
+        </div>
+        <select id="studentSchoolLevelComboBox" name="studentSchoolLevel">
+            <option value="0">Selecione</option>
+            <option value="1">Fundamental</option>
+            <option value="2">Médio</option>
+            <option value="3">Pré-vestibular</option>
+        </select>
+    </div>
 
-                    <div class="bt-centralized-element form-group bt-default-form-group">
-                        <label>Escolaridade: </label>
-                        <select class="form-control bt-default-form-control" id="studentSchoolLevelComboBox" name="studentSchoolLevel">
-                            <option value="0">Selecione</option>
-                            <option value="1">Fundamental</option>
-                            <option value="2">Médio</option>
-                            <option value="3">Pré-vestibular</option>
-                        </select>
-                    </div>
+    <div class="form-container">
+       <div class="input-group-prepend">
+        <label for="studentIsExperiencedComboBox" 
+        class="input-group-text bt-default-form-control text-dark">
+        Fez ENEM antes
+    </label>     
+</div>
 
-                    <div class="bt-centralized-element form-group bt-default-form-group">
-                        <label>Fez ENEM antes: </label>
-                        <select class="form-control bt-default-form-control" id="studentIsExperiencedComboBox" name="studentIsExperienced">
-                            <option value="0">Selecione</option>
-                            <option value='1'>Sim</option>
-                            <option value='2'>Não</option>
-                        </select>
-                    </div>
+<select id="studentIsExperiencedComboBox" name="studentIsExperienced">
+    <option value="0">Selecione</option>
+    <option value='1'>Sim</option>
+    <option value='2'>Não</option>
+</select>
+</div>
 
-                    <div class="bt-centralized-element form-group bt-default-form-group">
-                        <label>Area de preferência: </label>
-                        <select class="form-control bt-default-form-control" id="studentPreferredAreaComboBox" name="studentPreferredArea">
-                            <option value="0">Selecione</option>
-                            <option value='1'>Exatas</option>
-                            <option value='2'>Tecnológica</option>
-                            <option value='3'>Biológicas</option>
-                            <option value='4'>Humanas</option>
-                            <option value='5'>Saúde</option>
-                        </select>
-                    </div>
 
-                    <div class="bt-centralized-element form-group bt-default-form-group">
+<div class="form-container">
+   <div class="input-group-prepend">
+    <label for="studentPreferredAreaComboBox"
+    class="input-group-text bt-default-form-control text-dark">
+    Area de preferência
+</label>     
+</div>
+
+<select id="studentPreferredAreaComboBox" name="studentPreferredArea">
+    <option value="0">Selecione</option>
+    <option value='1'>Exatas</option>
+    <option value='2'>Tecnológica</option>
+    <option value='3'>Biológicas</option>
+    <option value='4'>Humanas</option>
+    <option value='5'>Saúde</option>
+</select>
+</div>
+
+                    <!-- <div class="bt-centralized-element form-group bt-default-form-group">
                         <label>Curso pretendido: </label>
                         <select>
-                            <!-- talvez seja melhor adicionar pelo js ao inves de adicionar na mão -->
+                            talvez seja melhor adicionar pelo js ao inves de adicionar na mão
                             <option>adicionar cursos...</option>
                         </select>
-                    </div>
+                    </div> -->
 
                     <div class="d-flex justify-content-center pt-1">
-                    	<button type="submit" class="btn btn-outline-dark centralized-element btn-lg font-weight-bold btn-block">Cadastrar</button>	
+                    	<button type="submit" class="btn btn-dark bt-centralized-element btn-lg font-weight-bold btn-block col-2">Cadastrar</button>	
                     </div>
 
                 </form>
