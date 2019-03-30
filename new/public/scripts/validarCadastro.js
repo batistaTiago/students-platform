@@ -43,6 +43,7 @@ $(document).ready(() => {
     let emailTextField = $('#studentEmailTextField')
     let senhaTextField = $('#studentPasswordTextField')
     let confirmacaoTextField = $('#studentPasswordConfirmationTextField')
+    let nomeTextField = $('#studentNameTextField')
     let nascimentoDatePicker = $('#studentBirthdayDatePicker')
     let escolaridadeComboBox = $("#studentSchoolLevelComboBox")
     let experienteComboBox = $("#studentIsExperiencedComboBox")

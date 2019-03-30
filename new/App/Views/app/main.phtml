@@ -1,0 +1,48 @@
+<section>
+	<div class="container my-4">
+		<div class="row d-flex">
+			<h1 id="cadastro-title" class="display-2 bt-centralized-element">Página Principal</h1>
+
+			<div class="col-6 bt-bg-gray bt-centralized-element p-3">
+				
+				<? 
+					// echo '<pre>';
+					// print_r($this->view->user);
+					// echo '</pre>';
+				?>
+
+				<span>
+					<h3>Nome: </h3>	
+					<p class="ml-2"><?= $this->view->user['name'] ?></p>
+				</span>
+
+				<span>
+					<h3>Email: </h3>	
+					<p class="ml-2"><?= $this->view->user['email'] ?></p>
+				</span>
+
+				<span>
+					<h3>Data de Nascimento: </h3>	
+					<p class="ml-2"><?= $this->view->user['birthday'] ?></p>
+				</span>
+
+				<span>
+					<h3>Escolaridade: </h3>	
+					<p class="ml-2"><?= $this->view->user['schoolLevel'] ?></p>
+				</span>
+
+				<span>
+					<h3>Área de Preferência: </h3>	
+					<p class="ml-2"><?= $this->view->user['preferredArea'] ?></p>
+				</span>	
+
+				<hr>
+<!-- 				<br><br><br><br><br><br><br><br><br><br><br><br>
+				<br><br><br><br><br><br><br><br><br><br><br><br> -->
+				
+				<a href="/editar_cadastro" class="btn btn-dark btn-block col-4 bt-centralized-element mt-5">Editar informações</a>
+			</div>
+
+		</div>
+	</div>
+</section>

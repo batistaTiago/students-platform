@@ -8,11 +8,17 @@ use MF\Model\Container;
 
 class AppController extends Action {
 
-	private function validaSessao() {
-		AuthController::validaSessao();
+	private function validarSessao() {
+		AuthController::validarSessao();
 	}
 
 	public function main() {
-		echo 'chegamos até aqui';
+		$this->validarSessao();
+		$this->view->user = $_SESSION;
+		$this->render('main', 'layout-logado');
+	}
+
+	public function editarCadastro() {
+		
 	}
 }

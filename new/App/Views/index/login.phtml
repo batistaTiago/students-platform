@@ -23,28 +23,43 @@
 
 						</div>
 					</div>
-					<? if (isset($this->view->info)) {
-						if ($this->view->info == 'erro') { ?>
+					<? if (isset($this->view->info)) { ?>
 
-							<script src="/scripts/erroLogin.js"></script>
+						<script src="/scripts/feedbackLogin.js"></script>
+						
+						<? if ($this->view->info == 'erro') { ?>
 
-							<div id="div-erro">
-								<span id="mensagem-erro" class="text-white bg-danger d-block lead text-center py-2 mt-3">
+							<div class="div-feedback">
+								<span class="mensagem-feedback text-white bg-danger d-block lead text-center py-2 mt-3">
 									Usuário ou senha incorretos
 								</span>	
 							</div>
 
 						<? } else if ($this->view->info == 'usuario_inativo') { ?>
 
-							<script src="/scripts/feedbackLogin.js"></script>
-
-							<div id="div-usuario-inativo">
-								<span id="mensagem-usuario-inativo" class="text-dark bg-warning d-block lead text-center py-2 mt-3">
+							<div class="div-feedback">
+								<span class="mensagem-feedback text-dark bg-warning d-block lead text-center py-2 mt-3">
 									Usuario inativo, confirme no endereço de email cadastrado.
 								</span>	
 							</div>
 
-						<?}
+						<?} else if ($this->view->info == 'sessao_expirada') { ?>
+
+							<div class="div-feedback">
+								<span class="mensagem-feedback text-dark bg-warning d-block lead text-center py-2 mt-3">
+									Sessão expirada - favor fazer login.
+								</span>	
+							</div>
+
+						<?} else if ($this->view->info == 'conta_ativada') { ?>
+
+							<div class="div-feedback">
+								<span class="mensagem-feedback text-light bg-success d-block lead text-center py-2 mt-3">
+									Usuario ativado - você pode fazer login.
+								</span>	
+							</div>
+
+						<? }
 					}?>
 				</div>
 			</form>

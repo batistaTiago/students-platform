@@ -10,6 +10,7 @@ class Estudante extends Model {
 	private $id = null;
 	private $email = null;
 	private $isActive = null;
+	private $name = null;
 	private $birthday = null;
 	private $schoolLevel = null;
 	private $isExperienced = null;
@@ -24,7 +25,16 @@ class Estudante extends Model {
 	}
 
 	public function getUserByEmail() {
-		$query = 'SELECT * FROM students_table WHERE student_email = ?';
+		
+		$query = '
+			SELECT 
+				* 
+			FROM 
+				students_table 
+			WHERE 
+				student_email = ?
+		';
+
 		$statement = $this->connection->prepare($query);
 		$statement->bindValue(1, $this->email);
 		$statement->execute();
@@ -57,10 +67,12 @@ class Estudante extends Model {
 		// verificar se existe o email ta disponivel para cadastro
 		if ($this->emailDisponivel()) {
 			$query = '
-			INSERT INTO students_table (
-			student_email, student_password, student_birthday,
-			student_school_level_id, student_is_experienced, 
-			student_preferred_area_id, student_account_confirmation_hash) VALUES (?, ?, ?, ?, ?, ?, ?)
+				INSERT INTO 
+					students_table (
+						student_email, student_password, student_name, student_birthday,
+						student_school_level_id, student_is_experienced, 
+						student_preferred_area_id, student_account_confirmation_hash) 
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 			';
 
 			$hash = md5(rand(0,10000));
@@ -70,11 +82,12 @@ class Estudante extends Model {
 			$statement = $this->connection->prepare($query);
 			$statement->bindValue(1, $this->email);
 			$statement->bindValue(2, md5($senha));
-			$statement->bindValue(3, $this->birthday);
-			$statement->bindValue(4, $this->schoolLevel);
-			$statement->bindValue(5, $this->isExperienced);
-			$statement->bindValue(6, $this->preferredArea);
-			$statement->bindValue(7, $hash);
+			$statement->bindValue(3, $this->name);
+			$statement->bindValue(4, $this->birthday);
+			$statement->bindValue(5, $this->schoolLevel);
+			$statement->bindValue(6, $this->isExperienced);
+			$statement->bindValue(7, $this->preferredArea);
+			$statement->bindValue(8, $hash);
 
 			return $statement->execute();
 		}
@@ -86,12 +99,13 @@ class Estudante extends Model {
 
 	public function validarEmailUsuario($hash, $hashEncodedEmail) {
 		$query = '
-		SELECT 
+			SELECT 
 			student_email, student_is_active
-		FROM 
+			FROM 
 			students_table 
-		WHERE 
-			student_account_confirmation_hash = ?';
+			WHERE 
+			student_account_confirmation_hash = ?
+		';
 
 		$statement = $this->connection->prepare($query);
 		$statement->bindValue(1, $hash);
@@ -103,24 +117,21 @@ class Estudante extends Model {
 			if (md5($estudante['student_email']) == $hashEncodedEmail){
 
 				$query = '
-				UPDATE students_table 
-				SET
+					UPDATE students_table 
+					SET
 					student_is_active = TRUE
-				WHERE
+					WHERE
 					student_email = ?
-				AND
-					student_account_confirmation_hash = ?';
+					AND
+					student_account_confirmation_hash = ?
+				';
 
 				$statement = $this->connection->prepare($query);
 				$statement->bindValue(1, $estudante['student_email']);
 				$statement->bindValue(2, $hash);
 				$sucesso = ($statement->execute() == 1);
 
-				if ($sucesso) {
-					header('Location: /login');
-				} else {
-					echo 'erro';
-				}
+				return $sucesso;
 
 
 			} else {
@@ -131,8 +142,33 @@ class Estudante extends Model {
 	}
 
 	public function autenticar($senha) {
-		//verificar se existe o email ta disponivel para cadastro
-		$query = 'SELECT student_id, student_is_active, student_birthday, student_school_level_id, student_is_experienced, student_preferred_area_id FROM students_table WHERE student_email = ? AND student_password = ?';
+		$query = '
+			SELECT 
+				student_id as id, 
+				student_name as name,
+				student_is_active as isActive, 
+				student_birthday as birthday, 
+				student_is_experienced as isExperienced,
+				school_levels_table.description as schoolLevel, 
+				preferred_areas_table.description as preferredArea
+			FROM 
+				students_table 
+			
+			LEFT JOIN
+				school_levels_table
+			ON
+				students_table.student_school_level_id = school_levels_table.school_level_id
+
+			LEFT JOIN
+				preferred_areas_table
+			ON
+				students_table.student_preferred_area_id = preferred_areas_table.preferred_area_id
+
+			WHERE 
+				student_email = ? 
+			AND 
+				student_password = ?
+		';
 
 		$statement = $this->connection->prepare($query);
 		$statement->bindValue(1, $this->email);
@@ -143,22 +179,16 @@ class Estudante extends Model {
 		$result = $statement->fetch(\PDO::FETCH_ASSOC);
 
 		if ($result != null) {
-			$this->__set('id', $result['student_id']);
-			$this->__set('birthday', $result['student_birthday']);
-			$this->__set('schoolLevel', $result['student_school_level_id']);
-			$this->__set('isExperienced', $result['student_is_experienced']);
-			$this->__set('preferredArea', $result['student_preferred_area_id']);
-			$this->__set('isActive', ((boolean)$result['student_is_active']) === true);
-
-
+			foreach ($result as $key => $value) {
+				$this->__set($key, $value);
+			}
 			 return true;
 		} else {
-			echo 'jeje';
 			$this->__set('nome', '');
 			$this->__set('id', '');
 			$this->__set('email', '');
 			$this->__set('senha', '');
-			// return false;
+			return false;
 		}
 	}
 

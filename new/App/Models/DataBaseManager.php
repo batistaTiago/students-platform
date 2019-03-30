@@ -17,6 +17,7 @@ class DataBaseManager extends Model {
 	student_email VARCHAR(60) NOT NULL, 
 	student_password VARCHAR(32) NOT NULL, 
 	student_is_active BOOLEAN NOT NULL DEFAULT FALSE, 
+	student_name VARCHAR(100) NOT NULL,
 	student_birthday DATE NOT NULL, 
 	student_school_level_id INT NOT NULL, 
 	student_is_experienced BOOLEAN NOT NULL, 

@@ -56,7 +56,11 @@ class Route extends Bootstrap {
 			'action' => 'processarLogin'
 		);
 
-
+		$routes['logout'] = array(
+			'route' => '/logout',
+			'controller' => 'AuthController',
+			'action' => 'processarLogout'
+		);
 
 		/* ROTAS DA APLICAÇÃO */
 
@@ -74,11 +78,11 @@ class Route extends Bootstrap {
 			'action' => 'emailDisponivel'
 		);
 
-		// $routes['init_db'] = array(
-		// 	'route' => '/init_db',
-		// 	'controller' => 'ApiController',
-		// 	'action' => 'initDB'
-		// );		
+		$routes['init_db'] = array(
+			'route' => '/init_db',
+			'controller' => 'ApiController',
+			'action' => 'initDB'
+		);		
 
 		$this->setRoutes($routes);
 	}
