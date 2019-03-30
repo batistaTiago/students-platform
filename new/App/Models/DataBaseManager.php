@@ -90,7 +90,7 @@ class DataBaseManager extends Model {
 
 
 
-	
+
 
 	public function initDataBase() {
 		$queries = [
