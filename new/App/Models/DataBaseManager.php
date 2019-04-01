@@ -95,14 +95,14 @@ class DataBaseManager extends Model {
 
 	public function initDataBase() {
 		$queries = [
-			// $this->dropMainTableQuery,
-			// $this->mainTableCreationQuery,
-			// $this->dropSchoolLevelsTableQuery,
-			// $this->schoolLevelsTableCreationQuery,
-			// $this->schoolLevelsTableEntryAdditionQuery,
-			// $this->dropPreferredAreasTableQuery,
-			// $this->preferredAreasTableCreationQuery,
-			// $this->preferredAreasTableEntryAdditionQuery,
+			$this->dropMainTableQuery,
+			$this->mainTableCreationQuery,
+			$this->dropSchoolLevelsTableQuery,
+			$this->schoolLevelsTableCreationQuery,
+			$this->schoolLevelsTableEntryAdditionQuery,
+			$this->dropPreferredAreasTableQuery,
+			$this->preferredAreasTableCreationQuery,
+			$this->preferredAreasTableEntryAdditionQuery,
 			$this->dropResetPasswordRequestsTableQuery,
 			$this->resetPasswordRequestsTableCreationQuery
 		];
