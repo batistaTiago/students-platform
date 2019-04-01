@@ -1,0 +1,30 @@
+<section id="section-login" class='d-flex'>
+	<div class="container align-self-center">
+		<div class="row d-flex">
+			<div class="bt-centralized-element col-12 w-75 bt-bg-gray p-3 bt-rounded-border-10 text-dark">
+				<h1 class="display-4 text-center">Redefinição de Senha</h1>
+				<div>
+					<p class="lead text-center mb-4">Insira sua nova senha</p>	
+					<div class="mx-3 d-flex justify-content-center">
+						<form class="d-block w-50 py-2" action="/processar_redefinicao_senha" method="post">
+							
+							<div class="input-group">
+								<input type="password" placeholder="Digite sua nova senha" name="studentPassword" class="form-control bt-default-form-control">
+							</div>
+
+							<div class="input-group mt-2">
+								<input type="password" placeholder="Confirme sua nova senha" name="studentPasswordConfirmation" class="form-control bt-default-form-control">
+							</div>
+							
+							<input type="hidden" name="confirmation" value="<?php echo htmlspecialchars($this->view->confirmation) ?>">
+							<input type="hidden" name="uem" value="<?php echo htmlspecialchars($this->view->hashedUserEmail) ?>">
+
+
+							<button type="submit" class="btn btn-outline-dark bt-centralized-element mt-4 d-block">Redefinir Senha</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

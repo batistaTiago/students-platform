@@ -82,7 +82,8 @@ class DataBaseManager extends Model {
 	CREATE TABLE
 		reset_password_requests_table(
 			password_request_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-			requesting_user_id VARCHAR(32) NOT NULL,
+			requesting_user_id INT NOT NULL,
+			requesting_user_email VARCHAR(32) NOT NULL,
 			request_hash_validation VARCHAR(32) NOT NULL
 	);
 	';
@@ -94,14 +95,14 @@ class DataBaseManager extends Model {
 
 	public function initDataBase() {
 		$queries = [
-			$this->dropMainTableQuery,
-			$this->mainTableCreationQuery,
-			$this->dropSchoolLevelsTableQuery,
-			$this->schoolLevelsTableCreationQuery,
-			$this->schoolLevelsTableEntryAdditionQuery,
-			$this->dropPreferredAreasTableQuery,
-			$this->preferredAreasTableCreationQuery,
-			$this->preferredAreasTableEntryAdditionQuery,
+			// $this->dropMainTableQuery,
+			// $this->mainTableCreationQuery,
+			// $this->dropSchoolLevelsTableQuery,
+			// $this->schoolLevelsTableCreationQuery,
+			// $this->schoolLevelsTableEntryAdditionQuery,
+			// $this->dropPreferredAreasTableQuery,
+			// $this->preferredAreasTableCreationQuery,
+			// $this->preferredAreasTableEntryAdditionQuery,
 			$this->dropResetPasswordRequestsTableQuery,
 			$this->resetPasswordRequestsTableCreationQuery
 		];

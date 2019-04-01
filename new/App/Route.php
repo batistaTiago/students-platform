@@ -28,11 +28,18 @@ class Route extends Bootstrap {
 			'action' => 'sucessoCadastro'
 		);
 
-		$routes['recuperar_senha'] = array(
-			'route' => '/recuperar_senha',
+		$routes['esqueci_minha_senha'] = array(
+			'route' => '/esqueci_minha_senha',
 			'controller' => 'IndexController',
 			'action' => 'recuperarSenha'
 		);
+
+		$routes['redefinir_senha'] = array(
+			'route' => '/redefinir_senha',
+			'controller' => 'IndexController',
+			'action' => 'redefinirSenha'
+		);
+
 
 		$routes['login'] = array(
 			'route' => '/login',
@@ -53,6 +60,12 @@ class Route extends Bootstrap {
 			'route' => '/validar_email',
 			'controller' => 'AuthController',
 			'action' => 'processarValidacaoEmail'
+		);
+
+		$routes['processar_esqueci_minha_senha'] = array(
+			'route' => '/processar_esqueci_minha_senha',
+			'controller' => 'AuthController',
+			'action' => 'processarEsqueciMinhaSenha'
 		);
 
 		$routes['processar_redefinicao_senha'] = array(

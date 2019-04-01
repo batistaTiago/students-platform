@@ -55,7 +55,7 @@ class MailController extends Action {
 	}
 
 
-	public static function enviarRedefinicaoDeSenha($destinatario, $hash) {
+	public static function enviarRedefinicaoDeSenha($email, $id, $hash) {
 		$mail = new PHPMailer(true);
 		try {
 		    //Server settings
@@ -77,15 +77,20 @@ class MailController extends Action {
 
 		    //Recipients
 		    $mail->setFrom('python.email.smtp.modules@gmail.com', 'WebMail PHP');
-		    $mail->addAddress($destinatario);
+		    $mail->addAddress($email);
 
 		    //Content
+
+		    $hashEncodedId = md5($id);
+		    $hashEncodedEmail = md5($email);
+
 		    $mail->isHTML(true);
 		    $mail->Subject = 'Confirmação de email';
-		    $hashEncodedMail = md5($destinatario);
+		    $hashEncodedId = md5($id);
+		    // TODO: TROCAR PARA UM FORM COM INPUTS INVISIVEIS
 		    $mail->Body    = "
 		    <h1>Email dinamicamente enviado!</h1>
-		    <a href='http://localhost:8080/validar_email?confirmation=$hash&user=$hashEncodedMail'>Isto é um linnyker de ativação</a>
+		    <a href='http://localhost:8080/redefinir_senha?uem=$hashEncodedEmail&uid=$hashEncodedId&confirmation=$hash'>Isto é um linnyker de recuperação de senha</a>
 
 		    ";
 		    $mail->AltBody = 'Use um cliente com HTML habilitado para ver o conteúdo desta mensagem.';

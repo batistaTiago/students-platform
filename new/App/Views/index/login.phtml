@@ -24,7 +24,7 @@
 						</div>
 						<hr>
 						<div class="col-12 d-flex justify-content-center">
-							<a class="btn btn-outline-dark" href="/recuperar_senha">Esqueci a senha</a>
+							<a class="btn btn-outline-dark" href="/esqueci_minha_senha">Esqueci a senha</a>
 						</div>
 
 
@@ -38,7 +38,7 @@
 
 						<div class="div-feedback">
 							<span class="mensagem-feedback text-white bg-danger d-block lead text-center py-2 mt-3">
-								Usuário ou senha incorretos
+								Usuário ou senha incorreto(s).
 							</span>	
 						</div>
 
@@ -54,7 +54,7 @@
 
 							<div class="div-feedback">
 								<span class="mensagem-feedback text-dark bg-warning d-block lead text-center py-2 mt-3">
-									Sessão expirada - favor fazer login.
+									Sessão expirada. Favor fazer login.
 								</span>	
 							</div>
 
@@ -62,11 +62,27 @@
 
 								<div class="div-feedback">
 									<span class="mensagem-feedback text-light bg-success d-block lead text-center py-2 mt-3">
-										Usuario ativado - você pode fazer login.
+										Usuario ativado. Você pode fazer login.
 									</span>	
 								</div>
 
-							<? }
+							<? } else if ($this->view->info == 'verificar_email') { ?>
+
+								<div class="div-feedback">
+									<span class="mensagem-feedback text-light bg-success d-block lead text-center py-2 mt-3">
+										Link de redefinição de senha enviado para o email cadastrado.
+									</span>	
+								</div>
+
+							<? } else if ($this->view->info == 'senha_alterada') { ?>
+
+								<div class="div-feedback">
+									<span class="mensagem-feedback text-light bg-success d-block lead text-center py-2 mt-3">
+										Senha alterada com sucesso. Você pode fazer login.
+									</span>	
+								</div>
+
+							<? } 
 						}?>
 					</div>
 				</form>

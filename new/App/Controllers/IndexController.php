@@ -33,8 +33,34 @@ class IndexController extends Action {
 
 	public function recuperarSenha() {
 		$this->view->pageTitle = 'Esqueci minha Senha';
-		$this->render('recuperar_senha', 'layout-small');
+		$this->render('esqueci_minha_senha', 'layout-small');
 	}
+
+	public function redefinirSenha() {
+
+		if (isset($_GET['uid']) && isset($_GET['confirmation']) && isset($_GET['uem']) && ($_GET['uid'] != '') && ($_GET['confirmation'] != '') && ($_GET['uem'] != '')) {
+
+			$requisicao = Container::getModel('PasswordResetRequest');
+			$requisicao->__set('userEmail', $_GET['uem']);
+			$requisicao->__set('securityCode', $_GET['confirmation']);
+
+			// echo '<br><br><br><br><br><br><br><br><br><br><br><br><pre>';
+			// print_r($requisicao);
+			// echo '</pre>';
+
+			if ($requisicao->requisicaoExiste()) {
+				$this->view->pageTitle = 'Redefinição de senha';
+				$this->view->hashedUserEmail = $_GET['uem'];
+				$this->view->confirmation = $_GET['confirmation'];
+				$this->render('redefinir_senha', 'layout-small');
+				return;
+			}
+
+		}
+
+		echo 'request invalido';
+	}
+
 }
 
 

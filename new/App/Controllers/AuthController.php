@@ -99,29 +99,49 @@ class AuthController extends Action {
 		header('Location: /login?info=sessao_expirada');
 	}
 
-	public function processarRedefinicaoSenha() {
-		echo 'estamos aqui: usuario a recuperar senha: ';
-		$email = $_POST['studentEmail'];
-		echo $email . '<hr>';
-
-
-
+	public function processarEsqueciMinhaSenha() {
 		$estudante = Container::getModel('Estudante');
 		$estudante->__set('email', $_POST['studentEmail']);
-		$estudante = $estudante->getUserByEmail();
+		$id = $estudante->getUserIdByEmail();
 
-		if ($estudante != null) {
-			echo '<br>usuario existe, informações disponíveis:<br>';
-			echo '<pre>';
-			print_r($estudante);
-			echo '</pre>';
-
-
+		if (!$estudante->emailDisponivel()) {
+			echo '<br>usuario existe<br>';
 			echo '<hr>registrando nova requisição';
+
+
 			$requisicao = Container::getModel('PasswordResetRequest');
-			$requisicao->registrarNovaRequisicao($estudante['student_id']);
+			$requisicao->__set('userEmail', $_POST['studentEmail']);
+			$requisicao->__set('userId', $id);
+			$requisicao->registrarNovaRequisicao();
+
+
+
+			header('Location: /login?info=verificar_email');
 		} else {
 			echo '<br>usuario não existe!';
+		}
+	}
+
+	public function processarRedefinicaoSenha() {
+		$requisicao = Container::getModel('PasswordResetRequest');
+		$requisicao->__set('userEmail', $_POST['uem']);
+		$requisicao->__set('securityCode', $_POST['confirmation']);
+
+		if ($requisicao->requisicaoExiste()) {
+			if (isset($_POST['studentPassword']) && $_POST['studentPassword'] != '') {
+				$requisicao->fetchUserId();
+				$estudante = Container::getModel('Estudante');
+				$estudante->__set('id', $requisicao->__get('userId'));
+				$estudante->trocarSenha($_POST['studentPassword']);
+				$requisicao->removerDoBanco();
+
+				header('Location: /login?info=senha_alterada');
+				
+			} else {
+				echo 'nova senha invalida! tente novamente <br>';
+			}
+		} else {
+			echo 'requisicao invalida';
 		}
 	}
 
